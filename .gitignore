@@ -1,0 +1,14 @@
+results/
+screenshots/
+__pycache__/
+*.py[cod]
+Failed/
+output.xml
+report.html
+log.html
+.venv/
+*output.xml
+.pabotsuitenames
+pabot_results/
+poetry.lock
+testdata/candidate/

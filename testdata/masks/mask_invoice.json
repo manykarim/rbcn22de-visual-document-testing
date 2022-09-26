@@ -1,0 +1,26 @@
+[
+    {
+        "page": "all",
+        "name": "Invoice ID",
+        "type": "pattern",
+        "pattern": "Invoice #:.*"
+        },
+        {
+        "page": "all",
+        "name": "Invoice ID",
+        "type": "pattern",
+        "pattern": "Created:.*"
+        },
+        {
+        "page": "all",
+        "name": "Invoice ID",
+        "type": "pattern",
+        "pattern": "Due:.*"
+        },
+        {
+        "page": "all",
+        "name": "Amounts",
+        "type": "pattern",
+        "pattern": "\\$.*|Total:.*"
+        }
+]

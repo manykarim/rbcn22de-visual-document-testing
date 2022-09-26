@@ -1,0 +1,8 @@
+[
+    {
+        "page": "all",
+        "name": "Amounts",
+        "type": "pattern",
+        "pattern": "\\$.*|Total:.*"
+        }
+]

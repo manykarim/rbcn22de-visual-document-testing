@@ -10,7 +10,7 @@ Compare two Farm images
     Run Keyword And Expect Error    The compared images are different.    Compare Images    testdata/image/Farm_left.jpg    testdata/image/Farm_right.jpg
 
 Compare two Farm images with date pattern
-    Compare Images    testdata/Beach_date.png    testdata/image/Beach_left.png    placeholder_file=testdata/pattern_mask.json
+    Compare Images    testdata/image/Beach_date.png    testdata/image/Beach_left.png    placeholder_file=testdata/masks/pattern_mask.json
 
 Compare two Farm images with area mask as list
     ${top_mask}    Create Dictionary    page=1    type=area    location=top    percent=10

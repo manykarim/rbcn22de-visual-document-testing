@@ -1,0 +1,8 @@
+robotframework-doctestlibrary
+weasyprint
+PyQt5
+robotframework-datadriver
+pandas
+xlrd
+openpyxl
+robotframework-pabot

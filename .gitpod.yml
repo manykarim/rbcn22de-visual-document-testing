@@ -5,7 +5,8 @@ tasks:
       echo 'init script' # runs during prebuild
     command: |
       echo 'start script'
-image: gitpod/workspace-full-vnc
+image:
+  file: .gitpod.Dockerfile
 ports:
   - port: 6080
     onOpen: open-preview

@@ -12,6 +12,11 @@ Compare two Farm images
 Compare two Farm images with date pattern
     Compare Images    testdata/image/Beach_date.png    testdata/image/Beach_left.png    placeholder_file=testdata/masks/pattern_mask.json
 
+Compare two Farm images with pattern mask as Dictionary
+    ${letter_mask}    Create Dictionary    type=pattern    pattern=SOUVENIR
+    ${text}    Get Text From Document    testdata/image/Beach_date.png
+    Compare Images    testdata/image/Beach_date.png    testdata/image/Beach_left.png    mask=${letter_mask}
+
 Compare two Farm images with area mask as list
     ${top_mask}    Create Dictionary    page=1    type=area    location=top    percent=10
     ${bottom_mask}    Create Dictionary    page=all    type=area    location=bottom    percent=10

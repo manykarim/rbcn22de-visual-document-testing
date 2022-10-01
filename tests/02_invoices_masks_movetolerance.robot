@@ -16,6 +16,10 @@ Compare Invoice with missing Logo
 Compare Invoice with missing Logo with mask
     Compare Images    ${TESTDATA_DIR}/invoice.pdf    ${CANDIDATE_DIR}/invoice_no_logo.pdf    placeholder_file=${MASK_DIR}/mask_logo.json
 
+Compare Invoice with missing Logo with mask as dictionary
+    ${logo_mask}    Create Dictionary    type=coordinates    x=31    y=31    height=14    width=84    unit=mm
+    Compare Images    ${TESTDATA_DIR}/invoice.pdf    ${CANDIDATE_DIR}/invoice_no_logo.pdf    mask=${logo_mask}
+
 Compare Invoice with different amount
     Compare Images    ${TESTDATA_DIR}/invoice.pdf    ${CANDIDATE_DIR}/invoice_diffamounts.pdf
 

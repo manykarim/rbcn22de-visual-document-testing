@@ -1,14 +1,14 @@
 *** Settings ***
 Library    ${CURDIR}/convert.py
 Library    OperatingSystem
-Library  DocTest.VisualTest    DPI=${DPI}    watermark_file=${REFERENCE_DIR}${/}watermarks    show_diff=${true}
+Library  DocTest.VisualTest    DPI=${DPI}    #watermark_file=${REFERENCE_DIR}${/}watermarks
 Library    DataDriver    file=evaluator_sample.xlsx
 Library    Collections
 Test Template     Compare Documents
 
 
 *** Variables ***
-${REFERENCE_DIR}  ${CURDIR}${/}..${/}testdata${/}image
+${REFERENCE_DIR}  ${CURDIR}${/}reference
 ${CANDIDATE_DIR}  ${CURDIR}${/}..${/}testdata${/}candidate
 ${PAYLOAD_DIR}  ${CURDIR}${/}..${/}testdata${/}payload
 ${MASK_DIR}  ${CURDIR}${/}..${/}testdata${/}masks
@@ -29,8 +29,10 @@ Copy Files for Failed Comparison
     Run Keyword If    '${STATUS}'=='FAIL'    Run Keyword And Ignore Error    Copy File    ${candidate_file}    ${OUTPUT DIR}${/}Failed${/}${TEST NAME}${/}candidate_${reference_file_name}
 
 Compare Documents
-    [Arguments]    ${reference_image}    ${payload_file}    ${placeholder_file}    ${check_text_content}     ${move_tolerance}    ${contains_barcodes}     ${get_pdf_content}    ${DPI}    ${retrieve_output}
-    [Teardown]    Copy Files for Failed Comparison    ${PAYLOAD_DIR}${/}${payload_file}    ${REFERENCE_DIR}${/}${reference_image}     ${candidate_file}
+    [Arguments]    ${reference_image}    ${payload_file}    
+    ...            ${placeholder_file}    ${check_text_content}     ${move_tolerance}    ${contains_barcodes}     ${get_pdf_content}    ${DPI}    ${retrieve_output}
+    [Teardown]    Copy Files for Failed Comparison    
+    ...            ${PAYLOAD_DIR}${/}${payload_file}    ${REFERENCE_DIR}${/}${reference_image}     ${candidate_file}
     
     IF     $retrieve_output == 'archive'
         Log    Get Document From Archive
@@ -45,7 +47,15 @@ Compare Documents
         Log    Get Document From WebService
         ${candidate_file}    Get Document From WebService     ${payload_file}    ${CANDIDATE_DIR}
     END
-    Compare Images  reference_image=${REFERENCE_DIR}${/}${reference_image}  test_image=${candidate_file}  placeholder_file=${placeholder_file}    check_text_content=${check_text_content}    move_tolerance=${move_tolerance}    contains_barcodes=${contains_barcodes}    get_pdf_content=${get_pdf_content}    DPI=${DPI}
+    Compare Images  
+    ...    reference_image=${REFERENCE_DIR}${/}${reference_image}  
+    ...    test_image=${candidate_file}  
+    ...    placeholder_file=${placeholder_file}    
+    ...    check_text_content=${check_text_content}    
+    ...    move_tolerance=${move_tolerance}    
+    ...    contains_barcodes=${contains_barcodes}    
+    ...    get_pdf_content=${get_pdf_content}    
+    ...    DPI=${DPI}
 
 Get Document From Archive
     [Arguments]    ${payload_file}    ${candidate_dir}

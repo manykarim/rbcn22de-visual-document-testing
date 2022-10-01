@@ -22,7 +22,7 @@ class TableModel(QtCore.QAbstractTableModel):
                 if value:
 #                    return QtGui.QIcon("tick.png")
                     return QtWidgets.QCheckBox("True")
-                return QtGui.QIcon("cross.png")
+                return QtWidgets.QCheckBox("False")
             return value
     
     def removeRows(self, position, rows, QModelIndex):

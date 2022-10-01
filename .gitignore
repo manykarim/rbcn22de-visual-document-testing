@@ -11,4 +11,4 @@ log.html
 .pabotsuitenames
 pabot_results/
 poetry.lock
-testdata/candidate/
+testdata/candidate/*.pdf

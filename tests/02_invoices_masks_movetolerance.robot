@@ -1,7 +1,7 @@
 *** Settings ***
-Library    convert.py
+#Library    convert.py
 Library    DocTest.VisualTest    take_screenshots=True    DPI=200
-Suite Setup    Generate Test Data
+#Suite Setup    Generate Test Data
 
 *** Variables ***
 ${PAYLOAD_DIR}    testdata/payload
@@ -43,4 +43,3 @@ Generate Test Data
     Convert Html To Pdf    ${PAYLOAD_DIR}/invoice_diffamounts.html    ${CANDIDATE_DIR}/invoice_diffamounts.pdf
     Convert Html To Pdf    ${PAYLOAD_DIR}/invoice_moved_text.html    ${CANDIDATE_DIR}/invoice_moved_text.pdf
     Convert Html To Pdf    ${PAYLOAD_DIR}/invoice_diff_date.html    ${CANDIDATE_DIR}/invoice_diff_date.pdf
-    # Convert Html To Pdf    ${PAYLOAD_DIR}/sample_nologo.html    ${TESTDATA_DIR}/no_logo.pdf

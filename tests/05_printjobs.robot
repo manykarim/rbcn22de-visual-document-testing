@@ -1,5 +1,5 @@
 *** Settings ***
-Library    DocTest.VisualTest    take_screenshots=True    DPI=200
+Library    DocTest.VisualTest    take_screenshots=True        DPI=72
 Library    DocTest.PrintJobTests
 
 

@@ -15,13 +15,8 @@ Check Text Content From PDF
     Run Keyword And Expect Error    Some expected texts were not found in document
     ...    PDF Should Contain Strings    Does not exist    ${TESTDATA_DIR}/invoice.pdf        
        
-Compare Text of PDF Documents with Moved Text
-    Compare Pdf Documents    ${TESTDATA_DIR}/invoice.pdf     ${CANDIDATE_DIR}/invoice_moved_text.pdf    compare=text
-
 Compare Text of PDF Documents with different amounts
     Compare Pdf Documents    ${TESTDATA_DIR}/invoice.pdf     ${CANDIDATE_DIR}/invoice_diffamounts.pdf    compare=text
 
-Visually Compare PDF Documents with Moved Text
-    ${text}    Get Text From Document    ${CANDIDATE_DIR}/invoice_moved_text.pdf
-    Log Many    @{text}
-    Compare Images    ${TESTDATA_DIR}/invoice.pdf    ${CANDIDATE_DIR}/invoice_moved_text.pdf
+Get Text From PDF File
+    ${text}    Get Text From Document    ${TESTDATA_DIR}/invoice.pdf

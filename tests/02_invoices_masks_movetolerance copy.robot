@@ -28,6 +28,9 @@ Compare Invoice with moved text
 Compare Invoice with moved text with move tolerance from PDF Text
     Compare Images    ${TESTDATA_DIR}/invoice.pdf    ${CANDIDATE_DIR}/invoice_moved_text.pdf    move_tolerance=20    get_pdf_content=True
 
+Compare Invoice with moved text with visual move tolerance
+    Compare Images    ${TESTDATA_DIR}/invoice.pdf    ${CANDIDATE_DIR}/invoice_moved_text.pdf    move_tolerance=20
+
 Compare Invoice with different date
     Compare Images    ${TESTDATA_DIR}/invoice.pdf    ${CANDIDATE_DIR}/invoice_diff_date.pdf
 

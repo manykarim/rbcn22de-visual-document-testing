@@ -5,6 +5,7 @@ Library  DocTest.VisualTest    DPI=${DPI}    #watermark_file=${REFERENCE_DIR}${/
 Library    DataDriver    file=evaluator_sample.xlsx
 Library    Collections
 Test Template     Compare Documents
+Suite Setup    Generate Reference Files
 
 
 *** Variables ***
@@ -77,3 +78,14 @@ Get Document From WebService
     Log    Get Document From WebService
     ${document}    Convert Html To Pdf    ${PAYLOAD_DIR}/${payload_file}    ${candidate_dir}
     [Return]    ${document}  
+
+Generate Reference Files
+    [Documentation]    Generate Reference Files
+    ...                Create 100 Invoices with name invoice_001.pdf to invoice_100.pdf in reference folder
+    ${reference_invoice}    Convert Html To Pdf    ${PAYLOAD_DIR}/invoice.html    ${REFERENCE_DIR}/invoice.pdf
+    FOR    ${i}    IN RANGE    1    100
+        # Get i as string with leading zeros
+        ${i_str}    Evaluate    str(${i}).zfill(3)
+        # Copy invoice.pdf to invoice_${i_str}.pdf
+        ${reference_file}    Copy File    ${reference_invoice}    ${REFERENCE_DIR}${/}invoice_${i_str}.pdf
+    END

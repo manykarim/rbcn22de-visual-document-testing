@@ -16,7 +16,8 @@ RUN sudo apt-get update && sudo apt-get install -y \
     wget \
     libdmtx0b \
     software-properties-common \
-    gettext-base
+    gettext-base \
+    qt5-default
 
 RUN sudo wget -O /usr/share/tesseract-ocr/4.00/tessdata/eng.traineddata https://github.com/tesseract-ocr/tessdata/blob/main/eng.traineddata?raw=true \
     && sudo wget -O /usr/share/tesseract-ocr/4.00/tessdata/osd.traineddata https://github.com/tesseract-ocr/tessdata/blob/main/osd.traineddata?raw=true

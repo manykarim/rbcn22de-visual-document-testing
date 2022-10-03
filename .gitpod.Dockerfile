@@ -1,12 +1,13 @@
 FROM gitpod/workspace-full-vnc
-USER gitpod
-
 ARG release_name=gs952
 ARG archive_name=ghostpcl-9.52-linux-x86_64
 
 RUN pip install --no-cache-dir numpy
 COPY requirements.txt /tmp/requirements.txt
 RUN pip install --no-cache-dir -r /tmp/requirements.txt
+
+USER gitpod
+
 WORKDIR    /
 RUN sudo apt-get update && sudo apt-get install -y \
     imagemagick \

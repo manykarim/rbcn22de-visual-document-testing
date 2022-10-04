@@ -7,7 +7,7 @@ RUN pip install --no-cache-dir numpy
 COPY requirements.txt /tmp/requirements.txt
 RUN pip install --no-cache-dir -r /tmp/requirements.txt
 WORKDIR    /
-RUN apt-get update && sudo apt-get install -y \
+RUN apt-get update && apt-get install -y \
     imagemagick \
     tesseract-ocr \
     ghostscript \
